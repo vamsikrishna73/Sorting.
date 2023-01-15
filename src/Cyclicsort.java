@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Cyclicsort {
     public static void main(String[] args) {
         int[] arr = {5,3,1,4,2};
-        cyclicsort(arr);
+        cyclicsort2(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -22,12 +22,23 @@ public class Cyclicsort {
         }
     }
 
+    static void cyclicsort2(int[] array){
+        int i = 0;
+        while (i< array.length){
+            int correct = array[i]-1;
+            if (array[i] != array[correct]){
+                swap(array,i,correct);
+            }else {
+                i++;
+            }
+        }
+    }
+
     static void swap(int[] array,int first,int second){
         int temp = array[second];
         array[second] = array[first];
         array[first] = temp;
     }
-
 
 
 }

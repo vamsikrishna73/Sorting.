@@ -8,6 +8,8 @@ public class Repeatednumber {
 
         int[] arr = {1,3,2,4,5,2};//------>range = [1,n] & no elements = "n+1"
         System.out.println(reapeatedval(arr));
+        System.out.println(repeatedvalue2(arr));
+
 
     }
 
@@ -25,6 +27,29 @@ public class Repeatednumber {
             }
         }
         return -1;
+    }
+
+    static int repeatedvalue2(int[] array){
+
+
+        int i = 0;
+        while(i<array.length){
+            int correct = array[i]-1;
+            if( array[i]<array.length && array[i] != array[correct]){
+                swap(array, i, correct);
+            }
+            else{
+                i++;
+            }
+        }
+
+        for (int j = 0; j < array.length; j++) {
+            if(array[j] != j+1){
+                return array[j];
+            }
+        }
+        return -1;
+
     }
 
     static void swap(int[] array,int first,int second){
